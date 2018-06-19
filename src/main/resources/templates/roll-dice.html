@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: head(${'Roll Dice'})">
     <meta charset="UTF-8"/>
-    <title>Dice Roll</title>
-    <style>
-        a:hover{
 
-        }
-        .button{
-            background-color: #6600ff;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            display: inline-block;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 8px;
-            color: white;
-        }
-        .buttons{
-            position: center;
-        }
-    </style>
+
 </head>
-<body>
-
-<h1>Please guess a number:</h1>
-<div class="buttons">
-<a class="button" href="/roll-dice/1"><strong>1</strong></a>
-<a class="button" href="/roll-dice/2"><strong>2</strong></a>
-<a class="button" href="/roll-dice/3"><strong>3</strong></a>
-<a class="button" href="/roll-dice/4"><strong>4</strong></a>
-<a class="button" href="/roll-dice/5"><strong>5</strong></a>
-<a class="button" href="/roll-dice/6"><strong>6</strong></a>
+<body style="background-color: paleturquoise">
+<nav th:replace="partials/navbar :: nav-bar"></nav>
+<div class="card mt-5 w-50 mx-auto">
+    <div class="card-header">
+        <h1 class="text-center">Please guess a number</h1>
+    </div>
+    <div class="card-body">
+        <div class="buttons text-center">
+            <a class="button" href="/roll-dice/1"><strong>1</strong></a>
+            <a class="button" href="/roll-dice/2"><strong>2</strong></a>
+            <a class="button" href="/roll-dice/3"><strong>3</strong></a>
+            <a class="button" href="/roll-dice/4"><strong>4</strong></a>
+            <a class="button" href="/roll-dice/5"><strong>5</strong></a>
+            <a class="button" href="/roll-dice/6"><strong>6</strong></a>
+        </div>
+    </div>
 </div>
-<div class="alert alert-danger" th:if="${number != null}">
+<div class="alert alert-danger mt-5" th:if="${number != null}">
     <h1>Your number is: <span th:text="${number}"></span></h1>
     <h1>Dice 1: <span th:text="${random1}"></span></h1>
     <h1>Dice 2: <span th:text="${random2}"></span></h1>
@@ -49,19 +36,13 @@
 
     </h1>
 
-    <div class="alert alert-danger" th:if="${number.equals(random1) || number.equals(random2)}">
+    <div th:if="${number.equals(random1) || number.equals(random2)}">
         <h1>You hit the number!!!</h1>
     </div>
 
 
-
 </div>
 
-<script>
-    function button() {
-        document.getElementById("button")
-        
-    }
-</script>
+<script th:replace="partials/footer :: footer"></script>
 </body>
 </html>
