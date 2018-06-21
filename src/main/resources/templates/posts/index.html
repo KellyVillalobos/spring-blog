@@ -12,6 +12,7 @@
     <div class="card-body">
         <h5 class="card-title text-center"><span th:text="${post.title}"></span></h5>
         <p  th:text="${post.body}" class="card-text text-center"></p>
+        <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary" role="button">Edit</a>
     </div>
 </div>
 </div>

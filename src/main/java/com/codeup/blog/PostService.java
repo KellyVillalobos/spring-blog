@@ -7,6 +7,9 @@ import java.util.List;
 
 @Service
 public class PostService {
+    public static void main(String[] args) {
+
+    }
 
     private List<Post> posts;
 
@@ -19,11 +22,12 @@ public class PostService {
         return posts;
     }
 
-//    public Post save(Post post) {
-//        post.setId(posts.size() + 1);
-//        posts.add(post);
-//        return post;
-//    }
+    public Post save(Post post) {
+        post.setId(posts.size() + 1);
+        posts.add(post);
+        System.out.println("hi from save method");
+        return post;
+    }
 
     public Post findOne(long id) {
         return posts.get((int) (id - 1));
@@ -32,6 +36,9 @@ public class PostService {
     private void createPosts() {
         // create some ad objects and add them to the ads list
         // with the save method
+
+
+
         Post post1 = new Post("First post from the post service", "This body is coming from the first post the post service", 1);
         Post post2 = new Post("Second post from the post service", "this body is coming from the second post of the post service",2);
         Post post3 = new Post("Third post from the post service", "This body is coming from the Third post of the post service", 3);
