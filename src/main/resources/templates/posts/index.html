@@ -5,14 +5,16 @@
 </head>
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
-<h1 class="text-center mt-5">Here are all the dam posts!!!</h1>
-<div th:each="post : ${posts}">
+<h1 th:if="${! posts.isEmpty()}" class="text-center mt-5">Here are all the posts!!!</h1>
+<h1 th:if="${posts.isEmpty()}" class="text-center mt-5">Search returned no results</h1>
+<div th:each="post, iStat : ${posts}">
 <div class="card mt-5 w-50 mx-auto">
-    <h5 class="card-header text-center">Post <span th:text="${post.id}"></span></h5>
+    <h5 class="card-header text-center"><a th:href="@{'/post/'+${post.id}}">Post<span th:text="${iStat.count}"></span></a></h5>
     <div class="card-body">
         <h5 class="card-title text-center"><span th:text="${post.title}"></span></h5>
         <p  th:text="${post.body}" class="card-text text-center"></p>
         <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary" role="button">Edit</a>
+        <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary" role="button">Delete</a>
     </div>
 </div>
 </div>

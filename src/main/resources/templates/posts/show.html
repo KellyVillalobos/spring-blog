@@ -7,9 +7,8 @@
 <nav th:replace="partials/navbar :: nav-bar"></nav>
 
     <div class="card mt-5 w-50 mx-auto">
-        <h5 class="card-header text-center">Post <span th:text="${post.id}"></span></h5>
+        <h5 class="card-header text-center"><span th:text="${post.title}"></span></h5>
         <div class="card-body">
-            <h5 class="card-title text-center"><span th:text="${post.title}"></span></h5>
             <p  th:text="${post.body}" class="card-text text-center"></p>
         </div>
     </div>

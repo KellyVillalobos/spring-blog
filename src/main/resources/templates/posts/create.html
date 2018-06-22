@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-    <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="partials/header :: head(${'create'})"/>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: head(${'create'})"/>
 
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
 
-
-<form class="mx-auto mt-5 w-75" action="/post/create" method="post" th:object="${post}">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title"  placeholder="Title" th:field="*{title}"/>
+<div class="card mt-5 w-75 mx-auto">
+    <div class="card-header">
+        <h1 class="text-center">Create Post</h1>
     </div>
-    <div class="form-group">
-        <label for="body">Description</label>
-        <input type="text" class="form-control" id="body" placeholder="body" th:field="*{body}"/>
+    <div class="card-body">
+        <form class="mx-auto mt-5 w-75" action="/post/create" method="post" th:object="${post}">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" th:field="*{title}"/>
+            </div>
+            <div class="form-group">
+                <label for="body">Description</label>
+                <input type="text" class="form-control" id="body" placeholder="body" th:field="*{body}"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
 <script th:replace="partials/footer :: footer"></script>
 
 </body>
