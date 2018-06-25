@@ -1,6 +1,7 @@
 package com.codeup.blog.controller;
 
 import com.codeup.blog.PostRepository;
+import com.codeup.blog.UserRepository;
 import com.codeup.blog.controller.PostController;
 import com.codeup.blog.PostService;
 import com.codeup.blog.model.Post;
@@ -14,10 +15,12 @@ import java.util.List;
 @Controller
 public class PostController {
     private final PostService postService;
+    private  UserRepository userRepository;
 
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, UserRepository userRepository) {
         this.postService = postService;
+        this.userRepository = userRepository;
 
 
     }

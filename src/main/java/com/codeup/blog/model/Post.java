@@ -1,6 +1,7 @@
 package com.codeup.blog.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name ="posts")
@@ -14,6 +15,9 @@ public class Post {
     private String body;
 
 
+@ManyToOne
+@JoinColumn
+private User user;
 
     public Post(String title, String body, long id) {
         this.title = title;
@@ -51,5 +55,13 @@ public class Post {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User users) {
+        this.user = users;
     }
 }
