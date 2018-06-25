@@ -60,6 +60,7 @@ private User user;
     public User getUser() {
         return user;
     }
+    public String getEmail(){return user.getEmail();}
 
     public void setUser(User users) {
         this.user = users;

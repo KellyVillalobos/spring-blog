@@ -11,6 +11,9 @@
         <div class="card-body">
             <p  th:text="${post.body}" class="card-text text-center"></p>
         </div>
+        <div class="card-footer">
+        <p><span th:text="${post.getEmail()}"></span></p>
+        </div>
     </div>
 
 

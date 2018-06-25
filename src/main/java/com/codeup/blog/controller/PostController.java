@@ -1,26 +1,24 @@
 package com.codeup.blog.controller;
 
-import com.codeup.blog.PostRepository;
-import com.codeup.blog.UserRepository;
-import com.codeup.blog.controller.PostController;
 import com.codeup.blog.PostService;
+import com.codeup.blog.UserService;
 import com.codeup.blog.model.Post;
+import com.codeup.blog.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Controller
 public class PostController {
     private final PostService postService;
-    private  UserRepository userRepository;
+    private final  UserService userService;
 
 
-    public PostController(PostService postService, UserRepository userRepository) {
+    public PostController(PostService postService, UserService userService) {
         this.postService = postService;
-        this.userRepository = userRepository;
+        this.userService = userService;
 
 
     }
@@ -44,7 +42,8 @@ public class PostController {
 
     @GetMapping("/post/{id}")
     public String ShowDetails(@PathVariable long id, Model view) {
-        view.addAttribute("post", postService.findOne(id));
+        view.addAttribute("post", postService.findById(id));
+        System.out.println(postService.findById(id));
         return "/posts/show";
 
 
@@ -77,7 +76,8 @@ public class PostController {
 
     @PostMapping("post/create")
     public String create(@ModelAttribute Post post) {
-        System.out.println(post);
+        User user = userService.findRandomUser();
+        post.setUser(user);
         postService.save(post);
         return "redirect:/posts";
     }

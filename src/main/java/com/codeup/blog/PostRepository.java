@@ -8,4 +8,5 @@ import java.util.List;
 public interface PostRepository extends CrudRepository<Post,Long> {
     List<Post> findAll();
     List<Post> findByBodyContainsOrTitleContains(String searchTerm, String searchTerm2);
+    Post findById(long id);
 }

@@ -1,7 +1,6 @@
 package com.codeup.blog;
 
 import com.codeup.blog.model.Post;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,13 +10,14 @@ public class PostService {
     private final PostRepository postDao;
 
 
+
     public PostService(PostRepository postDao) {
         this.postDao = postDao;
     }
 
     public List<Post> search(String searchTerm) {
-       return postDao.findByBodyContainsOrTitleContains(searchTerm, searchTerm);
-       }
+        return postDao.findByBodyContainsOrTitleContains(searchTerm, searchTerm);
+    }
 
 
     public List<Post> findAll() {
@@ -35,6 +35,12 @@ public class PostService {
 
     public Post findOne(long id) {
         return postDao.findOne(id);
+    }
+
+
+
+    public Post findById(long id) {
+        return postDao.findById(id);
     }
 
     public Post edit(Post post, long id) {
