@@ -2,6 +2,7 @@ package com.codeup.blog.Service;
 
 import com.codeup.blog.Repository.UsersRepository;
 import com.codeup.blog.model.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class UserService {
     public User save(User user){
         return userDao.save(user);
     }
+
 
 
 }

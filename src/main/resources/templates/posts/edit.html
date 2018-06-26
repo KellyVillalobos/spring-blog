@@ -5,14 +5,6 @@
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
 
-<div sec:authorize="isAuthenticated()">
-    This content is only shown to authenticated users.
-
-    User ID: <span th:text="${#authentication.principal.id}"/>
-    Username: <span th:text="${#authentication.principal.username}"/>
-    Email: <span th:text="${#authentication.principal.email}"/>
-</div>
-
 
 <form class="mx-auto mt-5 w-75" th:action="@{'/post/'+${post.id}+'/edit'}" method="post" th:object="${post}">
     <div class="form-group">

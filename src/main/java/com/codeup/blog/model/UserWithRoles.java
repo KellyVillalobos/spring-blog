@@ -19,7 +19,7 @@ public class UserWithRoles extends User implements UserDetails {
     //editor
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roles = ""; // Since we're not using the authorization part of the component
+        String roles = "e"; // Since we're not using the authorization part of the component
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
 
     }

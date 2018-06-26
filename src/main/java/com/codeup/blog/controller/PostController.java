@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 public class PostController {
     private final PostService postService;
-    private final  UserService userService;
+    private final UserService userService;
 
 
     public PostController(PostService postService, UserService userService) {
@@ -36,10 +36,8 @@ public class PostController {
 
         }
 
-        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = userService.findUserById(sessionUser.getId());
-        System.out.println(user.getId());
-        view.addAttribute("user",user);
+
+
         view.addAttribute("posts", posts);
         view.addAttribute("searchTerm", searchTerm);
         return "/posts/index";
