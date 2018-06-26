@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
     @GetMapping("/home")
     public String welcome(){
-        return "/home";
+        return "home";
     }
 }
