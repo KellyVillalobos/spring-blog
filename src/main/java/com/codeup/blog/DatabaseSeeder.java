@@ -16,12 +16,12 @@
 //public class DatabaseSeeder implements CommandLineRunner {
 //    private final Logger log = LoggerFactory.getLogger(this.getClass());
 //    private final PostRepository postDao;
-//    private final Users userDao;
+//    private final UsersRepository userDao;
 //
 //    @Value("${app.env}")
 //    private String environment;
 //
-//    public DatabaseSeeder(PostRepository postDao, Users userDao) {
+//    public DatabaseSeeder(PostRepository postDao, UsersRepository userDao) {
 //        this.postDao = postDao;
 //        this.userDao = userDao;
 //    }
@@ -67,9 +67,9 @@
 //        }
 //        log.info("Deleting Posts....");
 //        postDao.deleteAll();
-//        log.info("Deleting Users....");
+//        log.info("Deleting UsersRepository....");
 //        postDao.deleteAll();
-//        log.info("Seeding Users....");
+//        log.info("Seeding UsersRepository....");
 //        List<User> users = seedUsers();
 //        log.info("Seeding Posts....");
 //        seedPosts(users);

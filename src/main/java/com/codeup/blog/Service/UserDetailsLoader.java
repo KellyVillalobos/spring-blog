@@ -1,5 +1,6 @@
-package com.codeup.blog;
+package com.codeup.blog.Service;
 
+import com.codeup.blog.Repository.UsersRepository;
 import com.codeup.blog.model.User;
 import com.codeup.blog.model.UserWithRoles;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsLoader implements UserDetailsService {
 
-    private final Users users;
+    private final UsersRepository users;
 
-    public UserDetailsLoader(Users users) {
+    public UserDetailsLoader(UsersRepository users) {
         this.users = users;
     }
 

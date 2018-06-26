@@ -1,5 +1,6 @@
-package com.codeup.blog;
+package com.codeup.blog.Service;
 
+import com.codeup.blog.Repository.UsersRepository;
 import com.codeup.blog.model.User;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +9,9 @@ import java.util.Random;
 
 @Service
 public class UserService {
-    private Users userDao;
+    private UsersRepository userDao;
 
-    public UserService(Users userDao) {
+    public UserService(UsersRepository userDao) {
         this.userDao = userDao;
     }
 

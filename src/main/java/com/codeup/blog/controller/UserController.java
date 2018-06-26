@@ -1,6 +1,6 @@
 package com.codeup.blog.controller;
 
-import com.codeup.blog.Users;
+import com.codeup.blog.Repository.UsersRepository;
 import com.codeup.blog.model.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private Users users;
+    private UsersRepository users;
     private PasswordEncoder passwordEncoder;
 
 
-    public UserController(Users users, PasswordEncoder passwordEncoder) {
+    public UserController(UsersRepository users, PasswordEncoder passwordEncoder) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
 

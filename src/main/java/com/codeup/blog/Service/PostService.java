@@ -1,5 +1,7 @@
-package com.codeup.blog;
+package com.codeup.blog.Service;
 
+import com.codeup.blog.Repository.PostRepository;
+import com.codeup.blog.Repository.UsersRepository;
 import com.codeup.blog.model.Post;
 import com.codeup.blog.model.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,10 +12,10 @@ import java.util.List;
 @Service
 public class PostService {
     private final PostRepository postDao;
-    private final Users usersDao;
+    private final UsersRepository usersDao;
 
 
-    public PostService(PostRepository postDao, Users usersDao) {
+    public PostService(PostRepository postDao, UsersRepository usersDao) {
         this.postDao = postDao;
         this.usersDao = usersDao;
     }
