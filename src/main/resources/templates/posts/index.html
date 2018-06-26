@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="partials/header :: head(${'Posts'})">
 
 </head>
@@ -13,8 +13,10 @@
     <div class="card-body">
         <h5 class="card-title text-center"><span th:text="${post.title}"></span></h5>
         <p  th:text="${post.body}" class="card-text text-center"></p>
+        <div th:if="${user.getId() == post.getUserId()}">
         <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary" role="button">Edit</a>
         <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary" role="button">Delete</a>
+        </div>
     </div>
 </div>
 </div>

@@ -3,6 +3,8 @@ package com.codeup.blog.controller;
 import com.codeup.blog.Service.PostService;
 import com.codeup.blog.Service.UserService;
 import com.codeup.blog.model.Post;
+import com.codeup.blog.model.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,10 @@ public class PostController {
 
         }
 
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.findUserById(sessionUser.getId());
+        System.out.println(user.getId());
+        view.addAttribute("user",user);
         view.addAttribute("posts", posts);
         view.addAttribute("searchTerm", searchTerm);
         return "/posts/index";
@@ -70,7 +76,6 @@ public class PostController {
 
     @GetMapping("/post/{id}/delete")
     public String delete(@ModelAttribute Post post, @PathVariable long id, Model view) {
-
         postService.delete(id);
         return "redirect:/posts";
     }
