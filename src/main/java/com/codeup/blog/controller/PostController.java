@@ -4,6 +4,7 @@ import com.codeup.blog.PostService;
 import com.codeup.blog.UserService;
 import com.codeup.blog.model.Post;
 import com.codeup.blog.model.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +52,7 @@ public class PostController {
 
     @GetMapping("/post/{id}/edit")
     public String showEditForm(@ModelAttribute Post post, @PathVariable long id, Model view) {
+
         view.addAttribute("id", id);
         Post p = postService.findOne(id);
         view.addAttribute("post", p);
@@ -70,14 +72,14 @@ public class PostController {
 
     @GetMapping("/post/{id}/delete")
     public String delete(@ModelAttribute Post post, @PathVariable long id, Model view) {
+
         postService.delete(id);
         return "redirect:/posts";
     }
 
     @PostMapping("post/create")
     public String create(@ModelAttribute Post post) {
-        User user = userService.findRandomUser();
-        post.setUser(user);
+
         postService.save(post);
         return "redirect:/posts";
     }

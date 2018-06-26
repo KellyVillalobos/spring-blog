@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: head(${'Sign Up'})"/>
+<body>
+<nav th:replace="partials/navbar :: nav-bar"></nav>
+<div class="card mx-auto mt-5 w-50">
+    <div class="card-header text-center">
+        <h1>Create an account</h1>
+    </div>
+    <div class="card-body">
+        <form th:action="@{/register}" method="POST" th:object="${user}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" class="form-control" th:field="*{username}"/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" class="form-control" th:field="*{email}"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" class="form-control" type="password" th:field="*{password}"/>
+            </div>
+            <input class="btn btn-primary" value="Sign me up!" type="submit"/>
+        </form>
+    </div>
+</div>
+
+<script th:replace="partials/footer :: footer"></script>
+</body>
+</html>

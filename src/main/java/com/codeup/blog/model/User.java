@@ -9,11 +9,11 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
-    @Column
+    @Column (name ="username", nullable = false, length = 100)
     private String username;
-    @Column
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
-    @Column
+    @Column (name = "password", nullable = false, length = 100)
     private String password;
 
 @OneToMany
@@ -31,8 +31,13 @@ private List<Post> posts;
         this.password = username;
     }
 
-    public User() {
+    public User() { }
 
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
     }
 
     public long getId() {

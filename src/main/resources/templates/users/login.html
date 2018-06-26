@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: head(${'Login'})"/>
+<body>
+<nav th:replace="partials/navbar :: nav-bar"></nav>
+
+<div class="card mx-auto mt-5 w-50">
+    <div class="card-header text-center">
+        <h1>Log In</h1>
+    </div>
+    <div class="card-body">
+        <div th:if="${param.error}">
+            Invalid Username and Password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" name="username" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" name="password" type="password"/>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Log In"/>
+        </form>
+    </div>
+</div>
+
+<script th:replace="partials/footer :: footer"></script>
+</body>
+</html>

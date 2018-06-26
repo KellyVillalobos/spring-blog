@@ -8,10 +8,10 @@ import java.util.Random;
 
 @Service
 public class UserService {
-    private UserRepository userDao;
+    private Users userDao;
 
-    public UserService(UserRepository postDao) {
-        this.userDao = postDao;
+    public UserService(Users userDao) {
+        this.userDao = userDao;
     }
 
     public User findRandomUser(){
@@ -20,4 +20,14 @@ public class UserService {
 
         return users.get(r.nextInt(users.size()));
     }
+
+    public User findUserById(long id){
+        return userDao.findUsersById(id);
+    }
+
+    public User save(User user){
+        return userDao.save(user);
+    }
+
+
 }
