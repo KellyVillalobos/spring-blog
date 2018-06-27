@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:replace="partials/header :: head(${'Edit'})"/>
+<head th:replace="partials/header :: head(${'Edit'})">
+
+</head>
 
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
@@ -8,14 +10,14 @@
 
 <form class="mx-auto mt-5 w-75" th:action="@{'/post/'+${post.id}+'/edit'}" method="post" th:object="${post}">
     <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title"  placeholder="Title" th:field="*{title}"/>
+        <label for="title" class="type">Title</label>
+        <input type="text" class="form-control type" id="title"  placeholder="Title" th:field="*{title}"/>
     </div>
     <div class="form-group">
-        <label for="body">Description</label>
-        <input type="text" class="form-control" id="body" placeholder="Body" th:field="*{body}"/>
+        <label for="body" class="type">Description</label>
+        <input type="text" class="form-control type" id="body" placeholder="Body" th:field="*{body}"/>
     </div>
-    <button  type="submit" class="btn btn-primary">Submit</button>
+    <button  type="submit" class="btn btn-primary type">Submit</button>
 </form>
 <script th:replace="partials/footer :: footer"></script>
 

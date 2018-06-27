@@ -9,15 +9,15 @@
 <h1 th:if="${posts.isEmpty()}" class="text-center mt-5">Search returned no results</h1>
 <div th:each="post, iStat : ${posts}">
     <div class="card mt-5 w-50 mx-auto">
-        <h5 class="card-header text-center"><a th:href="@{'/post/'+${post.id}}">Post<span
-                th:text="${iStat.count}"></span></a></h5>
+        <h5 class="card-header text-center"><a th:href="@{'/post/'+${post.id}}" class="type">Post<span
+                th:text="${iStat.count}" class="type"></span></a></h5>
         <div class="card-body">
-            <h5 class="card-title text-center"><span th:text="${post.title}"></span></h5>
-            <p th:text="${post.body}" class="card-text text-center"></p>
+            <h5 class="card-title text-center"><span class="type" th:text="${post.title}"></span></h5>
+            <p th:text="${post.body}" class="card-text text-center type"></p>
             <div sec:authorize="isAuthenticated()">
                 <div th:if="${#authentication.principal.id == post.getUserId()}">
-                    <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary" role="button">Edit</a>
-                    <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary" role="button">Delete</a>
+                    <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary type" role="button">Edit</a>
+                    <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary type" role="button">Delete</a>
                 </div>
             </div>
         </div>

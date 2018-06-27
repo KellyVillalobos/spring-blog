@@ -10,27 +10,28 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="/home" class="nav-link typeNav">Home</a></li>
             <div sec:authorize="isAuthenticated()">
-                <li class="nav-item"><a class="nav-link" href="/post/create">Create</a></li>
+                <li class="nav-item"><a class="nav-link typeNav" href="/post/create">Create</a></li>
             </div>
-            <li class="nav-item"><a class="nav-link" href="/posts">Posts</a></li>
+            <li class="nav-item"><a class="nav-link typeNav" href="/posts">Posts</a></li>
             <div sec:authorize="!isAuthenticated()">
-                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link typeNav" href="/login">Login</a></li>
             </div>
             <div sec:authorize="isAuthenticated()">
                 <form th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn text-muted"><a>Logout</a></button>
+                    <button class="btn-link btn text-muted"><a class="typeNav">Logout</a></button>
                 </form>
             </div>
             <div sec:authorize="!isAuthenticated()">
-                <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                <li class="nav-item"><a class="nav-link typeNav" href="/register">Register</a></li>
             </div>
         </ul>
 
     </div>
     <form action="/posts" class="form-inline my-2 my-lg-0">
-        <input name="search" type="search" placeholder="Search Posts" aria-label="Search" class="form-control mr-sm-2"/>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input name="search" type="search" placeholder="Search Posts" aria-label="Search" class="form-control mr-sm-2 typeNav"/>
+        <button class="btn btn-outline-success my-2 my-sm-0 typeNav" type="submit">Search</button>
     </form>
 </nav>
 

@@ -18,5 +18,46 @@
 #roll-dice {
     background-color: paleturquoise;
 }
+#loginImg{
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: -24%;
+    left: 30%;
+}
 
+#globe{
+    width: 8%;
+    height: 8%;
+    margin: 0px 5px 0px 5px;
+}
+
+#login{
+    margin: 10% auto 0;
+}
+
+#loginHead{
+    margin-top: 20%;
+}
+h1 {
+
+    font-family: 'Fredericka the Great', cursive;
+
+}
+
+.type{
+
+    font-family: 'Josefin Slab', serif;
+    font-size: larger;
+}
+
+.typeNav{
+    font-family: 'Josefin Slab', serif;
+    font-weight: 700;
+}
+#homeHead{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 7em;
+}
 
