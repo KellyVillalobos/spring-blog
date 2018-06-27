@@ -40,14 +40,14 @@ public class PostController {
 
         view.addAttribute("posts", posts);
         view.addAttribute("searchTerm", searchTerm);
-        return "/posts/index";
+        return "posts/index";
     }
 
     @GetMapping("/post/{id}")
     public String ShowDetails(@PathVariable long id, Model view) {
         view.addAttribute("post", postService.findById(id));
         System.out.println(postService.findById(id));
-        return "/posts/show";
+        return "posts/show";
 
 
     }
@@ -58,7 +58,7 @@ public class PostController {
         view.addAttribute("id", id);
         Post p = postService.findOne(id);
         view.addAttribute("post", p);
-        return "/posts/edit";
+        return "posts/edit";
 
     }
 
@@ -68,17 +68,17 @@ public class PostController {
         postService.edit(post, id);
 
         view.addAttribute("posts", post);
-        return "redirect:/posts";
+        return "redirect:posts";
 
     }
 
     @GetMapping("/post/{id}/delete")
     public String delete(@ModelAttribute Post post, @PathVariable long id, Model view) {
         postService.delete(id);
-        return "redirect:/posts";
+        return "redirect:posts";
     }
 
-    @PostMapping("/post/create")
+    @PostMapping("post/create")
     public String create(@ModelAttribute Post post) {
 
         postService.save(post);
@@ -88,7 +88,7 @@ public class PostController {
     @GetMapping("/post/create")
     public String showCreateForm(Model view) {
         view.addAttribute("post", new Post());
-        return "/posts/create";
+        return "posts/create";
     }
 
     @GetMapping("/redirect")
