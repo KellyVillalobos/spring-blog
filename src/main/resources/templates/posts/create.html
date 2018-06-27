@@ -14,7 +14,7 @@
                     <h1 class="text-center">Create Post</h1>
                 </div>
                 <div class="card-body">
-                    <form class="mx-auto mt-5" th:action="@{'post/create'}" method="post" th:object="${post}">
+                    <form class="mx-auto mt-5" th:action="@{'/post/create'}" method="post" th:object="${post}">
                         <div class="form-group">
                             <label for="title" class="type">Title</label>
                             <input type="text" class="form-control type" id="title" placeholder="Title"
