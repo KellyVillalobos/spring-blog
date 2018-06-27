@@ -19,7 +19,7 @@
             </div>
             <div sec:authorize="isAuthenticated()">
                 <form  th:action="@{/logout}" th:method="post">
-                    <button  class="logout"><a class="typeNav logoutNav">Logout</a></button>
+                    <button  class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
                 </form>
             </div>
             <div sec:authorize="!isAuthenticated()">
@@ -28,10 +28,12 @@
         </ul>
 
     </div>
-    <form action="/posts" class="form-inline my-2 my-lg-0">
+    <div class="collapse navbar-collapse" id="search1">
+    <form id="search" action="/posts" class="form-inline my-2 my-lg-0">
         <input name="search" type="search" placeholder="Search Posts" aria-label="Search" class="form-control mr-sm-2 typeNav"/>
         <button class="btn btn-outline-success my-2 my-sm-0 typeNav" type="submit">Search</button>
     </form>
+    </div>
 </nav>
 
 </body>

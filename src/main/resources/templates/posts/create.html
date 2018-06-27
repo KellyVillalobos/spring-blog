@@ -6,23 +6,30 @@
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
 
-
-<div class="card mt-5 w-50 mx-auto">
-    <div class="card-header">
-        <h1 class="text-center">Create Post</h1>
-    </div>
-    <div class="card-body">
-        <form class="mx-auto mt-5" th:action="@{'post/create'}" method="post" th:object="${post}">
-            <div class="form-group">
-                <label for="title" class="type">Title</label>
-                <input type="text" class="form-control type" id="title" placeholder="Title" th:field="*{title}"/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="create" class="card mt-5 w-50 mx-auto">
+                <div class="card-header">
+                    <h1 class="text-center">Create Post</h1>
+                </div>
+                <div class="card-body">
+                    <form class="mx-auto mt-5" th:action="@{'post/create'}" method="post" th:object="${post}">
+                        <div class="form-group">
+                            <label for="title" class="type">Title</label>
+                            <input type="text" class="form-control type" id="title" placeholder="Title"
+                                   th:field="*{title}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="body" class="type">Body</label>
+                            <textarea type="text" class="form-control type" id="body" placeholder="Body" rows="5"
+                                      th:field="*{body}"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary type">Submit</button>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="body" class="type">Body</label>
-                <textarea type="text"  class="form-control type" id="body" placeholder="Body" rows="5" th:field="*{body}"/>
-            </div>
-            <button type="submit" class="btn btn-primary type">Submit</button>
-        </form>
+        </div>
     </div>
 </div>
 <script th:replace="partials/footer :: footer"></script>

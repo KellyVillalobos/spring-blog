@@ -5,33 +5,38 @@
 
 <body>
 <nav th:replace="partials/navbar :: nav-bar"></nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div id="login" class="card w-50">
+                <div class="card-header text-center">
+                    <img id="loginImg" src="/img/user.svg" alt="avatar"/>
 
-<div id="login" class="card w-25">
-    <div class="card-header text-center">
-        <img id="loginImg"  src="/img/user.svg" alt="avatar"/>
+                    <h1 id="loginHead">Log In</h1>
+                </div>
+                <div class="card-body">
+                    <div th:if="${param.error}" class="type">
+                        Invalid Username and Password.
+                    </div>
+                    <div th:if="${param.logout}" class="type">
+                        You have been logged out.
+                    </div>
 
-        <h1 id="loginHead">Log In</h1>
-    </div>
-    <div class="card-body">
-        <div th:if="${param.error}" class="type">
-            Invalid Username and Password.
-        </div>
-        <div th:if="${param.logout}" class="type">
-            You have been logged out.
-        </div>
+                    <form th:action="@{/login}" method="post">
+                        <div class="form-group">
+                            <label for="username" class="type">Username</label>
+                            <input class="form-control type" id="username" name="username" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="type">Password</label>
+                            <input class="form-control type" id="password" name="password" type="password"/>
+                        </div>
 
-        <form th:action="@{/login}" method="post">
-            <div class="form-group">
-                <label for="username" class="type">Username</label>
-                <input class="form-control type" id="username" name="username" type="text"/>
+                        <input class="btn btn-primary type" type="submit" value="Log In"/>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password" class="type">Password</label>
-                <input class="form-control type" id="password" name="password" type="password"/>
-            </div>
-
-            <input class="btn btn-primary type" type="submit" value="Log In"/>
-        </form>
+        </div>
     </div>
 </div>
 
