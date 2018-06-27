@@ -10,16 +10,20 @@
 <div class="container">
     <div class="row">
         <div th:each="post, iStat : ${posts}">
-            <div class="card mt-5 w-75 mx-auto ">
-                <div class="card-header text-center bg-light"><a th:href="@{'/post/'+${post.id}}" class="bgHead">Post<span th:text="${iStat.count}"></span></a></div>
-                <div class="card-body bgCard">
-                    <h5 class="card-title text-center"><span class="type" th:text="${post.title}"></span></h5>
-                    <p th:text="${post.body}" class="card-text text-center type"></p>
-                    <div sec:authorize="isAuthenticated()">
-                        <div th:if="${#authentication.principal.id == post.getUserId()}">
-                            <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary type"
-                               role="button">Edit</a>
-                            <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary type" role="button">Delete</a>
+            <div class="col">
+                <div class="card mt-5 w-75 mx-auto ">
+                    <div class="card-header text-center bg-light"><a th:href="@{'/post/'+${post.id}}" class="bgHead">Post<span
+                            th:text="${iStat.count}"></span></a></div>
+                    <div class="card-body bgCard">
+                        <h5 class="card-title text-center"><span class="type" th:text="${post.title}"></span></h5>
+                        <p th:text="${post.body}" class="card-text text-center type"></p>
+                        <div sec:authorize="isAuthenticated()">
+                            <div th:if="${#authentication.principal.id == post.getUserId()}">
+                                <a th:href="@{'/post/'+${post.id}+'/edit'}" class="btn btn-primary type"
+                                   role="button">Edit</a>
+                                <a th:href="@{'/post/'+${post.id}+'/delete'}" class="btn btn-primary type"
+                                   role="button">Delete</a>
+                            </div>
                         </div>
                     </div>
                 </div>
