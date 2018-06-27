@@ -1,4 +1,16 @@
+.bgNav{
+   background-color: #05204A;
+}
+body{
+    background-color: #6697B0;
 
+}
+.bgCard{
+    background-color: #B4CDDF;
+}
+.bgHead{
+    background-color: #072249;
+}
 .button{
     background-color: #6600ff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
