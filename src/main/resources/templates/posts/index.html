@@ -9,8 +9,8 @@
 <h1 th:if="${posts.isEmpty()}" class="text-center mt-5">Search returned no results</h1>
 <div th:each="post, iStat : ${posts}">
     <div class="card mt-5 w-50 mx-auto ">
-        <div class="card-header text-center bgHead "><a th:href="@{'/post/'+${post.id}}" class="type">Post<span
-                th:text="${iStat.count}" class="type"></span></a></div>
+        <div class="card-header text-center bg-light"><a th:href="@{'/post/'+${post.id}}" class="bgHead">Post<span
+                th:text="${iStat.count}"></span></a></div>
         <div class="card-body bgCard">
             <h5 class="card-title text-center"><span class="type" th:text="${post.title}"></span></h5>
             <p th:text="${post.body}" class="card-text text-center type"></p>

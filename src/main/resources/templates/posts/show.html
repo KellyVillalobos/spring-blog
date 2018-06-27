@@ -7,12 +7,12 @@
 <nav th:replace="partials/navbar :: nav-bar"></nav>
 
     <div class="card mt-5 w-50 mx-auto">
-        <h5 class="card-header text-center"><span th:text="${post.title}" class="type"></span></h5>
+        <div class="card-header text-center bgHead"><span th:text="${post.title}" class=""></span></div>
         <div class="card-body">
             <p th:text="${post.body}" class="card-text text-center type"></p>
         </div>
         <div class="card-footer">
-        <p><span th:text="${post.getEmail()}"></span></p>
+        <p class="type"><span th:text="${post.getEmail()}"></span></p>
         </div>
     </div>
 
