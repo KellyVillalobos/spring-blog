@@ -65,20 +65,20 @@ public class PostController {
     @PostMapping("/post/{id}/edit")
     public String Edit(@ModelAttribute Post post, @PathVariable long id, Model view) {
 
-        postService.edit(post, id);
+       postService.edit(post, id);
 
         view.addAttribute("posts", post);
-        return "redirect:posts";
+        return "redirect:/posts";
 
     }
 
     @GetMapping("/post/{id}/delete")
     public String delete(@ModelAttribute Post post, @PathVariable long id, Model view) {
         postService.delete(id);
-        return "redirect:posts";
+        return "redirect:/posts";
     }
 
-    @PostMapping("post/create")
+    @PostMapping("/post/create")
     public String create(@ModelAttribute Post post) {
 
         postService.save(post);

@@ -29,14 +29,13 @@ public class PostService {
         return postDao.findAll();
     }
 
-    public Post save(Post post) {
+    public void save(Post post) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = usersDao.findUsersById(sessionUser.getId());
         post.setUser(user);
 
 
         postDao.save(post);
-        return post;
     }
 
     public void delete(long id) {
@@ -52,9 +51,11 @@ public class PostService {
         return postDao.findById(id);
     }
 
-    public Post edit(Post post, long id) {
-
-        return postDao.save(post);
+    public void edit(Post post, long id) {
+        Post postUser = postDao.findById(id);
+        User user = postUser.getUser();
+        post.setUser(user);
+        postDao.save(post);
 
     }
 
